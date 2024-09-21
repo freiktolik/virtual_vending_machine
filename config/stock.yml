@@ -1,0 +1,16 @@
+products:
+  coca cola:
+    price: 2.00
+    quantity: 2
+  sprite:
+    price: 2.50
+    quantity: 2
+  fanta:
+    price: 2.70
+    quantity: 3
+  orange juice:
+    price: 3.00
+    quantity: 1
+  water:
+    price: 3.25
+    quantity: 0
