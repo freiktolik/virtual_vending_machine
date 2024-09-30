@@ -1,9 +1,9 @@
 class CalculateChange
-  
-  def initialize(coins, balance)
-    @coins = coins
-    @balance = balance
-    @change_coins = {}
+
+  class << self
+    def call(*args)
+      new(*args).call
+    end
   end
 
   def call
@@ -29,6 +29,12 @@ class CalculateChange
 
   attr_reader :coins, :balance
   attr_accessor :change_coins
+
+  def initialize(coins, balance)
+    @coins = coins
+    @balance = balance
+    @change_coins = {}
+  end
 
   def sorted_coins
     # Sort coins by value in descending order for the Greedy Algorithm

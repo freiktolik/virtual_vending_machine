@@ -39,7 +39,7 @@ Attention!
 
 ## Self test case 1
 -----------------------------------------------------------------------
-VM is initialised with default following set of coins (see table above)
+VM is initialized with default following set of coins (see table above)
 
 You want to buy Coca Cola (2$)
 You have entered 60.50$ 
@@ -58,7 +58,7 @@ Only 1 x 0.25 is left on VM balance
 
 ## Self test case 2
 -----------------------------------------------------------------------
-VM is initialised with default following set of coins (see table above)
+VM is initialized with default following set of coins (see table above)
 
 You want to buy Coca Cola (2$)
 You have entered 100$ 

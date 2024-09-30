@@ -19,19 +19,23 @@ class Database
     build_coins(tables.find {|table| table[COINS]}[COINS])
   end
 
-  attr_reader :products, :coins
+  def reset
+    initialize_database
+  end
+
+  attr_accessor :products, :coins
 
   def product_rows
     products.map {|p| [p.name, p.price, p.quantity]}
   end
 
   def find_product(name)
-    raise InputError.new(EMPTY) if name.empty?
+    raise InputError.new(Product::EMPTY) if name.empty?
     
     product = products.find {|product| product.name == name}
     
     raise InputError.new("There is no product: #{name.colorize(color: :yellow, mode: :bold)} in vending machine, please select another one:\n") if product.nil?
-    raise InputError.new(OUT_OF_STOCK) if !product.in_stock?
+    raise InputError.new(Product::OUT_OF_STOCK) if !product.in_stock?
     
     product
   end
@@ -47,7 +51,11 @@ class Database
 
   private
 
-  def initialize(*tables)
+  def initialize
+    initialize_database
+  end
+
+  def initialize_database
     TABLES.each do |table|
       instance_variable_set("@#{table}", [])
     end

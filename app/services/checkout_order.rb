@@ -3,7 +3,7 @@ class CheckoutOrder
   
   def initialize(deposited_amount: 0.0)
     @products = []
-    @deposited_amount = deposited_amount * 100
+    @deposited_amount = deposited_amount
   end
 
   def balance
@@ -19,6 +19,6 @@ class CheckoutOrder
   end
 
   def change(coins)
-    @change ||= CalculateChange.new(coins, balance).call
+    @change ||= CalculateChange.call(coins, balance)
   end
 end

@@ -1,0 +1,5 @@
+# Ignore JetBrains stuff
+.idea/
+
+# Coverage results are not tracked by Git
+coverage/

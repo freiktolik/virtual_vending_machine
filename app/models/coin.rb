@@ -1,6 +1,7 @@
 class Coin
   COINS_INPUT_ERROR = "You didn't enter any coins\n".freeze
   INVALID_COINS = "Invalid coin\n".freeze
+  NOT_ENOUGH_COINS = "Not enough coins\n".freeze
 
   attr_accessor :quantity
   attr_reader :value  
@@ -11,7 +12,7 @@ class Coin
   end
 
   def deduct(count)
-    raise "Not enough coins" if count > @quantity
+    raise VirtualVendingError.new(NOT_ENOUGH_COINS) if count > @quantity
 
     @quantity -= count
   end
